@@ -2,11 +2,13 @@
 using Stefanini_CRUD.Application.ApplicationService.Models.Response;
 using Stefanini_CRUD.Application.ApplicationService.Service;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Stefanini_CRUD.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PersonController : BaseController
     {
         private readonly IPersonService _service;

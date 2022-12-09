@@ -1,4 +1,4 @@
-FROM node:latest as build-angular
+FROM node:18.12.1 as build-angular
 ENV NODE_OPTIONS="--openssl-legacy-provider"
 WORKDIR /dist/src/apps
 RUN npm cache clean --force

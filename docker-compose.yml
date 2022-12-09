@@ -10,7 +10,9 @@ services:
       dockerfile: src/Stefanini_CRUD.API/Dockerfile
     environment:
       DBConnection: "Data Source=sqldata,1433;Initial Catalog=master;Persist Security Info=True;User ID=sa;Password=Stefanini@123"
-  
+    ports:
+    - "5001:80"
+
   stefanini_crud.client:
     image: nginx:alpine
     build: ./src/Stefanini_CRUD.Client/

@@ -1,40 +1,119 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { BrowserModule, Title } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
+import {
+    PERFECT_SCROLLBAR_CONFIG,
+    PerfectScrollbarConfigInterface,
+    PerfectScrollbarModule,
+} from 'ngx-perfect-scrollbar';
+
+// Import routing module
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HeroComponent } from './components/hero/hero.component';
-import { LoadingComponent } from './components/loading/loading.component';
-import { MainNavComponent } from './components/main-nav/main-nav.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { HomeContentComponent } from './components/home-content/home-content.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { ExternalApiComponent } from './pages/external-api/external-api.component';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http';
+// Import app component
+import { AppComponent } from './app.component';
+
+// Import containers
+import {
+    DefaultFooterComponent,
+    DefaultHeaderComponent,
+    DefaultLayoutComponent,
+} from './containers';
+
+import {
+    AvatarModule,
+    BadgeModule,
+    BreadcrumbModule,
+    ButtonGroupModule,
+    ButtonModule,
+    CardModule,
+    DropdownModule,
+    FooterModule,
+    FormModule,
+    GridModule,
+    HeaderModule,
+    ListGroupModule,
+    NavModule,
+    ProgressModule,
+    SharedModule,
+    SidebarModule,
+    TabsModule,
+    UtilitiesModule,
+} from '@coreui/angular';
+
+import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { AuthGuard } from './guards/auth.guard';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+    suppressScrollX: true,
+};
+
+const APP_CONTAINERS = [
+    DefaultFooterComponent,
+    DefaultHeaderComponent,
+    DefaultLayoutComponent,
+];
+
+export function tokenGetter() {
+    return localStorage.getItem("jwt");
+}
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent,
-    HeroComponent,
-    HomeContentComponent,
-    LoadingComponent,
-    MainNavComponent,
-    NavBarComponent,
-    HomeComponent,
-    ProfileComponent,
-    ExternalApiComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FontAwesomeModule,
-  ],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent, ...APP_CONTAINERS],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        AvatarModule,
+        BreadcrumbModule,
+        FooterModule,
+        DropdownModule,
+        GridModule,
+        HeaderModule,
+        SidebarModule,
+        IconModule,
+        PerfectScrollbarModule,
+        NavModule,
+        ButtonModule,
+        FormModule,
+        UtilitiesModule,
+        ButtonGroupModule,
+        ReactiveFormsModule,
+        SidebarModule,
+        SharedModule,
+        TabsModule,
+        ListGroupModule,
+        ProgressModule,
+        BadgeModule,
+        ListGroupModule,
+        CardModule,
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: tokenGetter,
+                disallowedRoutes: []
+            }
+        }),
+
+    ],
+    providers: [
+        AuthGuard,
+        JwtHelperService,
+        {
+            provide: LocationStrategy,
+            useClass: HashLocationStrategy,
+        },
+        {
+            provide: PERFECT_SCROLLBAR_CONFIG,
+            useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+        },
+        IconSetService,
+        Title
+    ],
+    bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}

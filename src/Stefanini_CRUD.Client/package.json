@@ -1,5 +1,5 @@
 {
-  "name": "coreui-free-angular-admin-template",
+  "name": "stefanini-crud.client",
   "version": "4.2.18",
   "config": {
     "coreui_library_short_version": "4.2",
@@ -24,7 +24,6 @@
     "@angular/platform-browser": "^14.2.12",
     "@angular/platform-browser-dynamic": "^14.2.12",
     "@angular/router": "^14.2.12",
-    "@auth0/angular-jwt": "^5.1.0",
     "@coreui/angular": "~4.2.18",
     "@coreui/angular-chartjs": "~4.2.15",
     "@coreui/chartjs": "^3.0.0",

@@ -9,15 +9,19 @@ namespace Stefanini_CRUD.Infra.CrossCutting.IoC
 {
     public class NativeInjector
     {
-        public static void Setup(IServiceCollection services, IConfiguration configuration)
+        public static void AddLocalHttpClients(this IServiceCollection services )
         {
-            RegisterServices(services, configuration);
-        }
 
-        private static void RegisterServices(IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddScoped<IPersonService, PersonService>();
-            services.AddScoped<ICityService, CityService>();
         }
+        // public static void Setup(IServiceCollection services, IConfiguration configuration)
+        // {
+        //     RegisterServices(services, configuration);
+        // }
+
+        // private static void RegisterServices(IServiceCollection services, IConfiguration configuration)
+        // {
+        //     services.AddScoped<IPersonService, PersonService>();
+        //     services.AddScoped<ICityService, CityService>();
+        // }
     }
 }

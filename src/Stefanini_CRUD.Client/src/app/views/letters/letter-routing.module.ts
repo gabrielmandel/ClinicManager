@@ -7,23 +7,21 @@ import { LetterFormComponent } from './letter-form/letter-form.component';
 const routes: Routes = [
   {
     path: '',
-    component: LetterListComponent,
-    data: {
-      title: $localize`letter`
-    }
+    redirectTo: 'list',
+    pathMatch: 'full'
   },
   {
     path: 'list',
     component: LetterListComponent,
     data: {
-      title: $localize`letter`
+      title: $localize`Letter`
     }
   },
   {
     path: 'form',
     component: LetterFormComponent,
     data: {
-      title: $localize`letter`
+      title: $localize`Letter`
     }
   }
 ];

@@ -12,8 +12,6 @@ namespace Stefanini_CRUD.Infra.Data
     /// </summary>
     public class AppDbContext : DbContext
     {
-        public DbSet<Person> Person { get; set; }
-        public DbSet<City> City { get; set; }
         public AppDbContext()
         {
         }
@@ -29,10 +27,8 @@ namespace Stefanini_CRUD.Infra.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new PersonEntityTypeConfiguration());
-            modelBuilder.Entity<Person>();
-            modelBuilder.ApplyConfiguration(new CityEntityTypeConfiguration());
-            modelBuilder.Entity<City>();
+            modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
+            modelBuilder.Entity<User>();
         }
     }
 }

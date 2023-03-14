@@ -1,106 +1,64 @@
-import { LetterModule } from './views/letters/letter.module';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { LoginComponent } from './pages/login/login.component';
 import { NgModule } from '@angular/core';
-import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { BrowserModule, Title } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
-import {
-  PERFECT_SCROLLBAR_CONFIG,
-  PerfectScrollbarConfigInterface,
-  PerfectScrollbarModule,
-} from 'ngx-perfect-scrollbar';
-
-// Import routing module
 import { AppRoutingModule } from './app-routing.module';
-
-// Import app component
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Import containers
-import {
-  DefaultFooterComponent,
-  DefaultHeaderComponent,
-  DefaultLayoutComponent,
-} from './containers';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { LayoutComponent } from './layout';
 
-import {
-  AvatarModule,
-  BadgeModule,
-  BreadcrumbModule,
-  ButtonGroupModule,
-  ButtonModule,
-  CardModule,
-  DropdownModule,
-  FooterModule,
-  FormModule,
-  GridModule,
-  HeaderModule,
-  ListGroupModule,
-  NavModule,
-  ProgressModule,
-  SharedModule,
-  SidebarModule,
-  TabsModule,
-  UtilitiesModule,
-} from '@coreui/angular';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
 
-import { IconModule, IconSetService } from '@coreui/icons-angular';
-
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true,
-};
-
-const APP_CONTAINERS = [
-  DefaultFooterComponent,
-  DefaultHeaderComponent,
-  DefaultLayoutComponent,
-];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    AvatarModule,
-    BreadcrumbModule,
-    FooterModule,
-    DropdownModule,
-    GridModule,
-    HeaderModule,
-    SidebarModule,
-    IconModule,
-    PerfectScrollbarModule,
-    NavModule,
-    ButtonModule,
-    FormModule,
-    UtilitiesModule,
-    ButtonGroupModule,
-    ReactiveFormsModule,
-    SidebarModule,
-    SharedModule,
-    TabsModule,
-    ListGroupModule,
-    ProgressModule,
-    BadgeModule,
-    ListGroupModule,
-    CardModule,
-    LetterModule,
-  ],
-  providers: [
-    {
-      provide: LocationStrategy,
-      useClass: HashLocationStrategy,
-    },
-    {
-      provide: PERFECT_SCROLLBAR_CONFIG,
-      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
-    },
-    IconSetService,
-    Title
-  ],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        HeaderComponent,
+        FooterComponent,
+        LayoutComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        MatNativeDateModule,
+        ReactiveFormsModule,
+        MatSidenavModule,
+        DashboardModule,
+        MatCardModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatInputModule,
+        MatDialogModule,
+        MatTableModule,
+        MatMenuModule,
+        MatProgressSpinnerModule,
+        MatIconModule,
+        ReactiveFormsModule,
+        FormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

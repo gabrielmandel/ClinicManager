@@ -1,45 +1,17 @@
-<!--sidebar-->
-<!-- <c-sidebar
-  #sidebar="cSidebar"
-  class="d-print-none sidebar sidebar-fixed"
-  id="sidebar"
-  visible
->
-  <c-sidebar-brand
-    [brandFull]="{
-      src: 'assets/img/brand/coreui-angular.svg',
-      width: 200,
-      height: 46,
-      alt: 'CoreUI Logo'
-    }"
-    [brandNarrow]="{
-      src: 'assets/img/brand/coreui-signet-white.svg',
-      width: 46,
-      height: 46,
-      alt: 'CoreUI Logo'
-    }"
-    routerLink="./"
-  >
-  </c-sidebar-brand>
-    <perfect-scrollbar [config]="perfectScrollbarConfig">
-   [perfectScrollbar]="perfectScrollbarConfig"
-  <c-sidebar-nav
-    [navItems]="navItems"
-    dropdownMode="close"
-  >
-  </c-sidebar-nav>
-    </perfect-scrollbar>
-  <c-sidebar-toggler
-    *ngIf="!sidebar.narrow"
-    toggle="unfoldable"
-    cSidebarToggle="sidebar"
-  ></c-sidebar-toggler>
-</c-sidebar> -->
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+    <mat-sidenav mode="side" opened>
+        <div>
+            InkedHub
+        </div>
+        <div class="col-1">
+            <button>Dashboard</button>        
+            <button>Agenda</button>        
+            <button>Usuarios</button>        
+            <button>Configurações</button>        
+        </div>
+    </mat-sidenav>
     <mat-sidenav-content>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
   
-<!--main-->

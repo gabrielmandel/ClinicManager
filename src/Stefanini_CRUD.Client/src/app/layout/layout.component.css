@@ -1,3 +1,8 @@
+.menu-buttons{
+    background-color: blueviolet;
+    margin: 2px;
+}
+
 .sidenav-container {
     position: absolute;
     top: 0;
@@ -7,11 +12,34 @@
     background: #eee;
 }
 
-mat-sidenav {
-    padding: 15px;
-    width: 200px;
+.content{
+    background-color: lightgray;
+    padding: 12px;
+    height: 100%;
 }
 
-mat-sidenav-content {
-    padding: 15px;
+mat-sidenav {
+    text-align: center;
+    width: 230px;
+    background-color: #1e2936;
+    color: #fff;
+}
+
+
+.mat-button-toggle-checked{
+    background-color: lightgray;
+}
+
+mat-button-toggle-group{
+    width: 100%;
+    border: none;
+}
+
+mat-button-toggle{
+    font-family: 'Roboto';
+    color: #fff;
+    width: 100%;
+    margin: 5px 0px;
+    background-color: transparent;
+    border: none !important;
 }

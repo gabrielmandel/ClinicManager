@@ -24,6 +24,17 @@ import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
+import { ScheduleComponent } from './pages/schedule/schedule.component';
+import { BudgetComponent } from './pages/budget/budget.component';
+
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/moment';
+import * as moment from 'moment';
+
+export function momentAdapterFactory() {
+  return adapterFactory(moment);
+};
 
 
 @NgModule({
@@ -32,7 +43,9 @@ import { MatIconModule } from '@angular/material/icon';
         LoginComponent,
         HeaderComponent,
         FooterComponent,
-        LayoutComponent
+        LayoutComponent,
+        ScheduleComponent,
+        BudgetComponent
     ],
     imports: [
         BrowserModule,
@@ -56,7 +69,9 @@ import { MatIconModule } from '@angular/material/icon';
         MatProgressSpinnerModule,
         MatIconModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        MatButtonToggleModule,
+        CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory }),
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -2,6 +2,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout';
+import { ScheduleComponent } from './pages/schedule/schedule.component';
+import { BudgetComponent } from './pages/budget/budget.component';
 
 const routes: Routes = [
     {
@@ -20,6 +22,14 @@ const routes: Routes = [
                 path: 'dashboard',
                 loadChildren: () =>
                     import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule)
+            },
+            {
+                path: 'schedule',
+                component: ScheduleComponent
+            },
+            {
+                path: 'budget',
+                component: BudgetComponent
             },
         ]
     },
